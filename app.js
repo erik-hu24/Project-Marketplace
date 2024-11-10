@@ -4,8 +4,20 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
+// =================== connect to MongoDB =================================
+const mongoose = require('mongoose');
+
+const mongoDB = "mongodb+srv://erikhu:0x5TFIhuTx1gEj3s@marketplace.geayz.mongodb.net/marketplace";
+
+main().catch((err) => console.log(err));
+async function main() {
+  await mongoose.connect(mongoDB);
+}
+// =======================================================================
+
+var productsRouter = require('./routes/products');
 var usersRouter = require('./routes/users');
+
 
 var app = express();
 
@@ -19,8 +31,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/', productsRouter);
 app.use('/users', usersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
