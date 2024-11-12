@@ -7,7 +7,10 @@ router.get('/', function(req, res, next) {
   products.find({})
     .then( productList =>{
       //const imageUrls = productList.map(product => product.imageURL); 
-      res.send(productList[0].title);
+      res.render('products',
+      {
+        productList
+      });
     })
     .catch( err =>{
       console.log(err);

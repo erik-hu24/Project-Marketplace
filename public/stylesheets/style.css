@@ -6,3 +6,124 @@ body {
 a {
   color: #00B7FF;
 }
+
+p{
+  font-size: 20px;
+}
+
+.my-h1{
+  font-size: 50px;
+  text-align: left;
+}
+
+/* Container for the grid layout */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Adjust the number to change books per row */
+  gap: 20px; /* Space between books */
+  padding: 10px;
+}
+
+/* Individual book card */
+.product-card {
+  border: 0px none #ddd ;
+  padding: 1px 1px;
+  border-radius: 15px;
+  text-align: left;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.product-img {
+  width: 310px;
+  height: 350px;
+  border: 1px solid #ddd;
+  border-radius: 15px;  
+}
+
+.top-navigation{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  z-index: 1000;
+  padding: 0.5rem 1rem;
+  align-items: center;
+  display: flex;
+}
+
+.facebook-icon{
+  font-size: 2.5rem; 
+  color: cornflowerblue; 
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.search-icon{
+  font-size: 1.5rem; 
+  color: darkgray; 
+  margin-left: 5px;  
+  cursor: pointer;
+  padding: 8px; 
+  border-radius: 50%; 
+  transition: background-color 0.3s;
+}
+
+.top-mid-nav{
+  display: flex;
+  justify-content: center;
+  flex: 0.9;
+}
+
+.top-right-nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto;  /* 添加这行，将元素推到右边 */
+  padding-right: 15px; 
+}
+
+
+.house-icon,
+.people-icon,
+.game-icon,
+.film-icon{
+  font-size: 2rem;  
+  margin-left: 50px;  
+  margin-right: 50px; 
+  cursor: pointer;
+  color:#888888;
+  padding: 6px; 
+  border-radius: 50%; 
+  transition: background-color 0.3s;
+}
+
+
+.account-icon,
+.msg-icon{
+  font-size: 1.6rem;  
+  margin-left: 5px;  
+  margin-right: 10px; 
+  cursor: pointer;
+  color:#666666;
+  padding: 8px; 
+  border-radius: 50%; 
+  transition: background-color 0.3s;
+}
+
+.product-card:hover{
+  text-decoration: underline;
+}
+
+.house-icon:hover,
+.people-icon:hover,
+.game-icon:hover,
+.film-icon:hover, 
+.search-icon:hover,
+.msg-icon:hover,
+.account-icon:hover
+{
+  background-color: #e0e0e0;
+}

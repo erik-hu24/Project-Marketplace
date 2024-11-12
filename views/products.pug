@@ -1,6 +1,23 @@
 extends layout
 
 block content
-  h1= title
-  img(src="https://picsum.photos/300", alt=car)
-  p Welcomeeeeee to #{title}
+  .top-navigation
+    i.bi-facebook(class="facebook-icon")
+    i.bi-search(class="search-icon")
+    .top-mid-nav 
+      i.bi-house-door(class="house-icon")
+      i.bi-people(class="people-icon")
+      i.bi-controller(class="game-icon")
+      i.bi-film(class="film-icon")
+    .top-right-nav
+      i.bi-bell-fill(class="msg-icon")
+      i.bi-person-circle(class="account-icon")
+
+  h1(class="my-h1") Today's special 
+    .product-grid
+      each product in productList
+        .product-card
+          img(class="product-img" src=product.imageURL, alt='product image')
+          p CA $#{product.price} 
+          p #{product.title || 'N/A'} 
+          p #{product.location || 'N/A'}
