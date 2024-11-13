@@ -11,6 +11,10 @@ p{
   font-size: 20px;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 .my-h1{
   font-size: 50px;
   text-align: left;
@@ -191,5 +195,5 @@ p{
 }
 
 .main-content {
-  margin-left: 230px; /* Match this to the width of your sidebar */
+  margin-left: 230px; 
 }

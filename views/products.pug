@@ -34,7 +34,7 @@ block content
     h1(class="my-h1") Today's picks
     .product-grid
       each product in productList
-        a.product-link(href="http://localhost:3000/product") 
+        a.product-link(href=`http://localhost:3000/product/${product._id}`) 
           .product-card
             img(class="product-img" src=product.imageURL, alt='product image')
             p CA $#{product.price} 
