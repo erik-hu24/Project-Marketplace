@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  h1 Create a New Product
+  form(action="/create" method="POST")
+    div
+      label(for="title") Title:
+      input(type="text" name="title" required)
+    div
+      label(for="seller") Seller:
+      input(type="text" name="seller" required)
+    div
+      label(for="contact") Contact Information:
+      input(type="text" name="contact" required)
+    div
+      label(for="imageURL") imageURL:
+      input(type="text" name="imageURL" required)
+    div
+      label(for="description") Description:
+      input(type="text" name="description" required)
+    div
+      label(for="condition") Condition:
+      input(type="text" name="condition" required)
+    div
+      label(for="price") Price (CA $):
+      input(type="number" name="price" required)
+    div
+      label(for="location") Location:
+      input(type="text" name="location" required)
+    
+    div
+      button(type="submit") Submit

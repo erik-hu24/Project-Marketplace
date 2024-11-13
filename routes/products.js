@@ -19,7 +19,6 @@ router.get('/', function(req, res, next) {
 
 // jump to the specific product details page
 router.get('/product/:productID', function(req, res, next){
-  //const productID = req.params.productID;
   products.find({})
     .then( productList =>{
        // find the object of productList that  _id equal to productID 
@@ -34,7 +33,7 @@ router.get('/product/:productID', function(req, res, next){
          res.status(404).send("Product not found");
        }
     })
-    .catch( err =>{
+    .catch( err => {
       console.log(err);
       res.status(500).send("Error retrieving products");
     });
