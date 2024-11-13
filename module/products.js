@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 // Define a schema
 const Schema = mongoose.Schema;
 
-//============================== Books Schema========================================
+//============================== products Schema========================================
 const productsSchema = new Schema({
     title: { type: String, required: true },                    
     seller: { type: String, required: true },

@@ -18,4 +18,9 @@ router.get('/', function(req, res, next) {
     });
 });
 
+// jump to the specific product details page
+router.get('/product', function(req, res, next){
+  res.render('product-detail');
+});
+
 module.exports = router;

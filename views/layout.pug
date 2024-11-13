@@ -5,4 +5,18 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css")
   body
+    .top-navigation 
+      i.bi-facebook(class="facebook-icon")
+      i.bi-search(class="search-icon")
+      .top-mid-nav 
+        a(href="http://localhost:3000/")
+          i.bi-shop(class="house-icon")
+        i.bi-people(class="people-icon")
+        i.bi-controller(class="game-icon")
+        a(href="https://www.google.com")
+          i.bi-google(class="google-icon")
+      .top-right-nav
+        i.bi-bell-fill(class="msg-icon")
+        i.bi-person-circle(class="account-icon")
+
     block content

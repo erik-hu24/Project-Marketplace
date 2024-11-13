@@ -20,7 +20,7 @@ p{
 .product-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* Adjust the number to change books per row */
-  gap: 20px; /* Space between books */
+  gap: 15px; /* Space between books */
   padding: 10px;
 }
 
@@ -35,11 +35,17 @@ p{
 }
 
 .product-img {
-  width: 310px;
+  width: 300px;
   height: 350px;
   border: 1px solid #ddd;
   border-radius: 15px;  
 }
+
+.product-link {
+  text-decoration: none; 
+  color: inherit; 
+}
+
 
 .top-navigation{
   position: fixed;
@@ -59,7 +65,6 @@ p{
   font-size: 2.5rem; 
   color: cornflowerblue; 
   margin-right: 10px;
-  cursor: pointer;
 }
 
 .search-icon{
@@ -78,19 +83,33 @@ p{
   flex: 0.9;
 }
 
+.top-mid-nav a { 
+  display: flex; 
+  align-items: center;  
+}
+
 .top-right-nav {
   display: flex;
   align-items: center;
-  margin-left: auto;  /* 添加这行，将元素推到右边 */
+  margin-left: auto; 
   padding-right: 15px; 
 }
 
+.people-icon,
+.game-icon{
+  font-size: 2rem;  
+  margin-left: 50px;  
+  margin-right: 50px; 
+  cursor: pointer;
+  color:#888888;
+  padding: 6px; 
+  border-radius: 50%; 
+  transition: background-color 0.3s;
+}
 
 .house-icon,
-.people-icon,
-.game-icon,
-.film-icon{
-  font-size: 2rem;  
+.google-icon{
+  font-size: 1.8rem;  
   margin-left: 50px;  
   margin-right: 50px; 
   cursor: pointer;
@@ -120,10 +139,57 @@ p{
 .house-icon:hover,
 .people-icon:hover,
 .game-icon:hover,
-.film-icon:hover, 
+.google-icon:hover, 
 .search-icon:hover,
 .msg-icon:hover,
 .account-icon:hover
 {
   background-color: #e0e0e0;
+}
+
+.left-navigation {
+  margin-top: -1px; /* Adjust this value based on the height of your top nav */
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-right: 5px;
+  position: fixed;
+  left: 0;
+  width: 260px; /* Set the width for the sidebar */
+  height: calc(100vh - 40px); /* Ensure it fills the remaining viewport height */
+  overflow-y: auto;
+  background-color: #ffffff;
+  border-right:1px solid #b8b6b6;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  font-size: 1.2rem;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 10px;
+}
+
+.nav-item:hover {
+  background-color: #ddd;
+}
+
+.icon {
+  margin-right: 10px;
+  font-size: 1.5rem;
+  color: rgb(110, 108, 108);
+}
+
+.category {
+  margin-top: 20px;
+}
+
+.location, .category i {
+  font-size: 1rem;
+}
+
+.main-content {
+  margin-left: 230px; /* Match this to the width of your sidebar */
 }

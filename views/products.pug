@@ -1,23 +1,42 @@
 extends layout
 
 block content
-  .top-navigation
-    i.bi-facebook(class="facebook-icon")
-    i.bi-search(class="search-icon")
-    .top-mid-nav 
-      i.bi-house-door(class="house-icon")
-      i.bi-people(class="people-icon")
-      i.bi-controller(class="game-icon")
-      i.bi-film(class="film-icon")
-    .top-right-nav
-      i.bi-bell-fill(class="msg-icon")
-      i.bi-person-circle(class="account-icon")
+  .left-navigation 
+    h1(style="font-size:40px") MarketPlace
+    .nav-item
+      i.bi-shop(class="icon")     Browse all
+    .nav-item
+      i.bi-cart(class="icon")   Sell Product
+    .nav-item
+      i.bi-basket3(class="icon")   Edit Product
+    .nav-item
+      i.bi-bag(class="icon")   Archive Product
+    
+    hr
+    
+    h1(style="font-size:30px")  Categories
+    .nav-item
+      i.bi-award(class="icon")  Clothes
+    .nav-item
+      i.bi-bag(class="icon")  Bags
+    .nav-item
+      i.bi-house(class="icon")  Houses
+    .nav-item
+      i.bi-ev-front(class="icon")   Vehicles
+    .nav-item
+      i.bi-box(class="icon")   Free Stuffs
+    .nav-item
+      i.bi-tags(class="icon")   Classifieds
+    .nav-item
+      i.bi-phone(class="icon")   Electronics
 
-  h1(class="my-h1") Today's special 
+  .main-content
+    h1(class="my-h1") Today's picks
     .product-grid
       each product in productList
-        .product-card
-          img(class="product-img" src=product.imageURL, alt='product image')
-          p CA $#{product.price} 
-          p #{product.title || 'N/A'} 
-          p #{product.location || 'N/A'}
+        a.product-link(href="http://localhost:3000/product") 
+          .product-card
+            img(class="product-img" src=product.imageURL, alt='product image')
+            p CA $#{product.price} 
+            p #{product.title || 'N/A'} 
+            p #{product.location || 'N/A'}
