@@ -4,6 +4,9 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css")
+    //-  Allow child templates to add their own styles here
+    block pageStyles 
+    
   body
     .top-navigation 
       i.bi-facebook(class="facebook-icon")

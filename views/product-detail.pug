@@ -1,11 +1,33 @@
 extends layout
 
-block content
-    h1 product details page
-    p #{product.title}
-    p #{product.seller}
-    p #{product.description}
-    p #{product.price}
-    p #{product.condition}
-    p #{product.location}
-    p #{product.contact}
+block pageStyles
+  link(rel="stylesheet", href="/stylesheets/product-detail.css")
+
+block content 
+  .product-details-container
+    h1.product-title #{product.title}
+    
+    .product-info
+      img.product-image(src=product.imageURL, alt="product image")
+      
+      .product-meta
+        p
+          strong Seller: 
+          | #{product.seller || 'N/A'}
+        p
+          strong Description:
+          | #{product.description || 'No description available'}
+        p
+          strong Price:
+          | CA $#{product.price}
+        p
+          strong Condition:
+          | #{product.condition || 'N/A'}
+        p
+          strong Location:
+          | #{product.location || 'N/A'}
+        p
+          strong Contact:
+          | #{product.contact || 'N/A'}
+    
+    a.back-link(href="/") Back to Products
