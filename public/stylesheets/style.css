@@ -15,10 +15,39 @@ html {
   overflow-y: scroll;
 }
 
-.my-h1{
-  font-size: 50px;
-  text-align: left;
+.main-content {
+  padding: 20px;
 }
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.my-h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.location-display {
+  display: flex;
+  align-items: center;
+  color: #1877f2; /* Facebook blue color */
+  font-size: 1rem;
+}
+
+.location-icon {
+  font-size: 1.2rem;
+  color: #1877f2;
+  margin-right: 5px;
+}
+
+.location-text {
+  color: #1877f2;
+}
+
 
 /* Container for the grid layout */
 .product-grid {
@@ -72,6 +101,13 @@ html {
   margin-right: 10px;
 }
 
+.logo-text {
+  font-size: 1.5rem; /* Adjust text size as needed */
+  font-weight: bold;
+  color: cornflowerblue; /* Matches the icon color */
+  margin-right: 20px; /* Space between "Facebook" text and search icon */
+}
+
 .search-icon{
   font-size: 1.5rem; 
   color: darkgray; 
@@ -99,6 +135,52 @@ html {
   margin-left: auto; 
   padding-right: 15px; 
 }
+
+.login-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.login-form input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.login-form input:focus {
+  border-color: #b0b0b0;
+}
+
+.login-button {
+  padding: 10px 20px;
+  background-color: #1877f2; /* Facebook blue */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.login-button:hover {
+  background-color: #145dbf; /* Darker blue on hover */
+}
+
+.forgot-link {
+  color: #1877f2; /* Matching link color */
+  font-size: 0.9rem;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
 
 .people-icon,
 .game-icon{
@@ -198,3 +280,7 @@ html {
 .main-content {
   margin-left: 230px; 
 }
+
+
+
+
