@@ -30,4 +30,6 @@ block content
           strong Contact:
           | #{product.contact || 'N/A'}
     
-    a.back-link(href="/") Back to Products
+    .button-container
+      a.button-back(href="/") Back to Products
+      a.button-edit(href=`/edit/${product._id}/verify`) Edit Post

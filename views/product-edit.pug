@@ -1,13 +1,49 @@
+//- product-edit.pug
 extends layout
 
-block content
-    extends layout
+block pageStyles
+    link(rel="stylesheet", href="/stylesheets/product-edit.css")
 
 block content
-  h1 Edit Product
-  form(action="/edit" method="POST")
-    div
-      label(for="password") Product Password:
-      input(type="text" name="password" required)
-    div
-      button(type="submit") Submit
+  .edit-container
+    h1.edit-title Edit Product
+
+    // Display product image
+    if product.imageURL
+      img.product-image(src=product.imageURL alt="Product Image")
+
+    form.edit-form(action=`/edit/${product._id}` method="POST")
+      .form-group
+        label(for="title") Title:
+        input.edit-input(type="text" name="title" value=product.title required)
+      
+      .form-group
+        label(for="seller") Seller:
+        input.edit-input(type="text" name="seller" value=product.seller required)
+      
+      .form-group
+        label(for="contact") Contact Information:
+        input.edit-input(type="text" name="contact" value=product.contact required)
+      
+      .form-group
+        label(for="imageURL") Image URL:
+        input.edit-input(type="text" name="imageURL" value=product.imageURL required)
+
+      .form-group
+        label(for="description") Description:
+        textarea.edit-textarea(name="description" required)= product.description
+      
+      .form-group
+        label(for="condition") Condition:
+        input.edit-input(type="text" name="condition" value=product.condition required)
+      
+      .form-group
+        label(for="price") Price (CA $):
+        input.edit-input(type="number" name="price" step="0.01" value=product.price required)
+      
+      .form-group
+        label(for="location") Location:
+        input.edit-input(type="text" name="location" value=product.location required)
+      
+      .form-group.button-group
+        button.edit-button(type="submit") Save Changes

@@ -1,0 +1,28 @@
+extends layout
+
+block pageStyles
+    link(rel="stylesheet", href="/stylesheets/product-verify.css")
+
+block content
+  .verify-container
+    h1.verify-title Verify Password to Edit Product
+    form.verify-form(action=`/edit/${productID}/verify` method="POST")
+      .form-group
+        label(for="password") Enter Password:
+        input.verify-input(type="password" name="password" required)
+      .form-group
+        button.verify-button(type="submit") Submit
+
+    // Popup message container (hidden by default)
+    div#error-message(style="display: none; color: red; margin-top: 10px;")
+      p Incorrect password. Please try again.
+
+  // JavaScript to check for the error parameter and show the popup
+  script.
+    // Check if the URL contains an "error" query parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('error')) {
+      // Show the error message if "error" parameter is present
+      document.getElementById('error-message').style.display = 'block';
+      alert('Incorrect password. Please try again.'); // Optional popup window
+    }
