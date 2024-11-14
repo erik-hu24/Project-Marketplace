@@ -7,6 +7,7 @@ html
   body
     .top-navigation 
       i.bi-facebook(class="facebook-icon")
+      span.logo-text facebook
       i.bi-search(class="search-icon")
       .top-mid-nav 
         a(href="http://localhost:3000/")
@@ -15,8 +16,15 @@ html
         i.bi-controller(class="game-icon")
         a(href="https://www.google.com")
           i.bi-google(class="google-icon")
+      form.login-form(action="/login" method="post")
+        input(type="text" placeholder="Email or phone number" name="email" required)
+        input(type="password" placeholder="password" name="password" required)
+        button.login-button(type="submit") login
+      a.forgot-link(href="/forgot-password") Forget your account?
       .top-right-nav
         i.bi-bell-fill(class="msg-icon")
         i.bi-person-circle(class="account-icon")
+        
+      
 
     block content

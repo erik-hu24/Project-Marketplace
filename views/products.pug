@@ -1,43 +1,77 @@
+//- products.pug
 extends layout
 
 block content
   .left-navigation 
     h1(style="font-size:40px") MarketPlace
     .nav-item
-      i.bi-shop(class="icon")     Browse all
+      i.bi-shop.icon Browse all
     a.sell-product(href="http://localhost:3000/create")
       .nav-item
-        i.bi-cart(class="icon")   Sell Product
+        i.bi-cart.icon Sell Product
     .nav-item
-      i.bi-basket3(class="icon")   Edit Product
+      i.bi-basket3.icon Edit Product
     .nav-item
-      i.bi-bag(class="icon")   Archive Product
+      i.bi-bag.icon Archive Product
     
     hr
     
-    h1(style="font-size:30px")  Categories
+    h1(style="font-size:30px") Categories
     .nav-item
-      i.bi-award(class="icon")  Clothes
+      i.bi-award.icon Clothes
     .nav-item
-      i.bi-bag(class="icon")  Bags
+      i.bi-bag.icon Bags
     .nav-item
-      i.bi-house(class="icon")  Houses
+      i.bi-house.icon Houses
     .nav-item
-      i.bi-ev-front(class="icon")   Vehicles
+      i.bi-ev-front.icon Vehicles
     .nav-item
-      i.bi-box(class="icon")   Free Stuffs
+      i.bi-box.icon Free Stuffs
     .nav-item
-      i.bi-tags(class="icon")   Classifieds
+      i.bi-tags.icon Classifieds
     .nav-item
-      i.bi-phone(class="icon")   Electronics
+      i.bi-phone.icon Electronics
 
   .main-content
-    h1(class="my-h1") Today's picks
+    .header-container
+      h1.my-h1 Today's picks
+      .location-display
+        i.bi-geo-alt-fill.location-icon
+        span#location-text.location-text Loading location...
+    
     .product-grid
       each product in productList
-        a.product-link(href=`http://localhost:3000/product/${product._id}`) 
+        a.product-link(href=`http://localhost:3000/product/${product._id}`)
           .product-card
-            img(class="product-img" src=product.imageURL, alt='product image')
-            p CA $#{product.price} 
-            p #{product.title || 'N/A'} 
+            img.product-img(src=product.imageURL, alt='product image')
+            p CA $#{product.price}
+            p #{product.title || 'N/A'}
             p #{product.location || 'N/A'}
+
+  //- JavaScript to get the current location
+  script.
+    document.addEventListener("DOMContentLoaded", function() {
+        const locationText = document.getElementById("location-text");
+
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(async (position) => {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+
+                try {
+                    const response = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`);
+                    const data = await response.json();
+                    const city = data.address.city || data.address.town || data.address.village || "Unknown Location";
+                    locationText.textContent = `${city}`;
+                } catch (error) {
+                    console.error("Error fetching location:", error);
+                    locationText.textContent = "Location not found";
+                }
+            }, (error) => {
+                console.error("Geolocation error:", error);
+                locationText.textContent = "Location permission denied";
+            });
+        } else {
+            locationText.textContent = "Geolocation not supported";
+        }
+    });
