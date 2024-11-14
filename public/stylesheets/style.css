@@ -75,6 +75,7 @@ html {
 }
 
 .sell-product,
+.edit-product,
 .product-link {
   text-decoration: none; 
   color: inherit; 

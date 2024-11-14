@@ -6,11 +6,12 @@ block content
     h1(style="font-size:40px") MarketPlace
     .nav-item
       i.bi-shop.icon Browse all
-    a.sell-product(href="http://localhost:3000/create")
+    a.sell-product(href="/create")
       .nav-item
         i.bi-cart.icon Sell Product
-    .nav-item
-      i.bi-basket3.icon Edit Product
+    a.edit-product(href="/edit")
+      .nav-item
+        i.bi-basket3.icon Edit Product
     .nav-item
       i.bi-bag.icon Archive Product
     
@@ -41,7 +42,7 @@ block content
     
     .product-grid
       each product in productList
-        a.product-link(href=`http://localhost:3000/product/${product._id}`)
+        a.product-link(href=`/product/${product._id}`)
           .product-card
             img.product-img(src=product.imageURL, alt='product image')
             p CA $#{product.price}

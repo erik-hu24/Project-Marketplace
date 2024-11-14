@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    extends layout
+
+block content
+  h1 Edit Product
+  form(action="/edit" method="POST")
+    div
+      label(for="password") Product Password:
+      input(type="text" name="password" required)
+    div
+      button(type="submit") Submit

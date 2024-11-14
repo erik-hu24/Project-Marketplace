@@ -15,6 +15,7 @@ async function main() {
 }
 // =======================================================================
 
+var editRouter = require('./routes/productedit');
 var createRouter = require('./routes/productcreate');
 var productsRouter = require('./routes/products');
 var usersRouter = require('./routes/users');
@@ -32,6 +33,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/edit', editRouter);
 app.use('/create', createRouter);
 app.use('/', productsRouter);
 app.use('/users', usersRouter);

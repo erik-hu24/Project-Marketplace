@@ -13,7 +13,8 @@ const productsSchema = new Schema({
     condition: { type: String, required: true },
     location: { type: String, required: true },
     contact: { type: String, required: true },
-    imageURL: { type: String, required: true, default: "https://picsum.photos/300"}
+    imageURL: { type: String, required: true, default: "https://picsum.photos/300"},
+    password: String,
 });
 
 // Compile model from schema
