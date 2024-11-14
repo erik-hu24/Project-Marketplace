@@ -50,7 +50,8 @@ router.get('/:productID', async (req, res, next) => {
 router.post('/:productID', async (req, res, next) => {
   try {
     const productID = req.params.productID;
-    const { title, seller, contact, imageURL, description, condition, price, location } = req.body;
+    const { title, seller, contact, imageURL, description, condition, price, location, status } = req.body;
+    const updatedStatus = status === 'Sold' ? 'Unavailable' : 'Available';
 
     // Update the product in the database with new data
     await products.findByIdAndUpdate(productID, {
@@ -61,7 +62,8 @@ router.post('/:productID', async (req, res, next) => {
       description,
       condition,
       price,
-      location
+      location,
+      status: updatedStatus
     });
 
     // Redirect back to the product details page after update

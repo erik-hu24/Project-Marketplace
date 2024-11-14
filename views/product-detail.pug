@@ -7,10 +7,15 @@ block content
   .product-details-container
     h1.product-title #{product.title}
     
+    
     .product-info
       img.product-image(src=product.imageURL, alt="product image")
       
       .product-meta
+        // Display the current status
+        p 
+          strong Status: 
+          | #{product.status} 
         p
           strong Seller: 
           | #{product.seller || 'N/A'}
