@@ -1,32 +1,43 @@
 extends layout
 
+block pageStyles
+  link(rel="stylesheet" href="/stylesheets/product-create.css")
+
 block content
-  h1 Create a New Product
-  form(action="/create" method="POST")
-    div
-      label(for="title") Title:
-      input(type="text" name="title" required)
-    div
-      label(for="seller") Seller:
-      input(type="text" name="seller" required)
-    div
-      label(for="contact") Contact Information:
-      input(type="text" name="contact" required)
-    div
-      label(for="imageURL") imageURL:
-      input(type="text" name="imageURL" required)
-    div
-      label(for="description") Description:
-      input(type="text" name="description" required)
-    div
-      label(for="condition") Condition:
-      input(type="text" name="condition" required)
-    div
-      label(for="price") Price (CA $):
-      input(type="number" name="price" required)
-    div
-      label(for="location") Location:
-      input(type="text" name="location" required)
-    
-    div
-      button(type="submit") Submit
+  .form-container
+    h1 Create a New Product
+    form(action="/create" method="POST")
+      .form-group
+        label(for="title") Title:
+        input(type="text" name="title" required)
+      
+      .form-group
+        label(for="seller") Seller:
+        input(type="text" name="seller" required)
+      
+      .form-group
+        label(for="contact") Contact Information:
+        input(type="text" name="contact" required)
+      
+      .form-group
+        label(for="imageURL") Image URL:
+        input(type="text" name="imageURL" required)
+      
+      .form-group
+        label(for="description") Description:
+        textarea(name="description" id="description" required)
+      
+      .form-group
+        label(for="condition") Condition:
+        input(type="text" name="condition" required)
+      
+      .form-group
+        label(for="price") Price (CA $):
+        input(type="number" name="price" step="0.01" required)
+      
+      .form-group
+        label(for="location") Location:
+        input(type="text" name="location" required)
+      
+      .form-group
+        button(type="submit") Submit
