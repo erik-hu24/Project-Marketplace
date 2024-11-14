@@ -44,6 +44,12 @@ block content
       .form-group
         label(for="location") Location:
         input.edit-input(type="text" name="location" value=product.location required)
+
+      // Archive/Mark as Sold option
+      .form-group
+        label(for="status") Mark as Sold:
+        input(type="checkbox" name="status" value="Sold" checked=product.status === 'Unavailable')
+
       
       .form-group.button-group
         button.edit-button(type="submit") Save Changes

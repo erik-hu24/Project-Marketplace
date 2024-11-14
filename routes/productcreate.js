@@ -21,6 +21,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next){
     const { title, seller, imageURL, description, price, condition, location, contact } = req.body;
     const productPassword = generateRandomPassword(10);
+    
     // create a new product in Database
     products.create({
         title,
@@ -31,7 +32,8 @@ router.post('/', function(req, res, next){
         condition,
         location,
         contact,
-        password: productPassword
+        password: productPassword,
+        status: 'Available'
     })
     // after user submit the new product information successfully
     .then(() =>{
