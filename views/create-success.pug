@@ -1,5 +1,12 @@
 extends layout
 
+block pageStyles
+  link(rel="stylesheet", href="/stylesheets/product-edit.css")
+
 block content
-    h1 Create new product successfully
-    h2 password is: #{productPassword}
+    .main-container
+        h1
+            Strong Create new product successfully
+        h2 Password is: 
+            span.password-text #{productPassword}
+        p Use the password to edit your post 

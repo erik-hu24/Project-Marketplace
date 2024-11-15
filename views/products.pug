@@ -4,17 +4,15 @@ extends layout
 block content
   .left-navigation 
     h1(style="font-size:40px") MarketPlace
-    .nav-item
-      i.bi-shop.icon Browse all
+    a.sell-product(href="/")
+      .nav-item
+        i.bi-shop.icon Browse all
+    a.sell-product(href="/available")
+      .nav-item2
+        i.bi-bag-dash Browse Available
     a.sell-product(href="/create")
       .nav-item
         i.bi-cart.icon Sell Product
-    a.edit-product(href="/edit")
-      .nav-item
-        i.bi-basket3.icon Edit Product
-    .nav-item
-      i.bi-bag.icon Archive Product
-    
     hr
     
     h1(style="font-size:30px") Categories
@@ -50,6 +48,34 @@ block content
             p #{product.location || 'N/A'}
             p #{product.status}
 
+    //- Add pagination controls
+    .pagination-container
+      if currentPage > 1
+        a.pagination-button(href=`${isAvailableOnly ? '/available' : '/'}?page=${currentPage - 1}`) Previous
+      
+      .pagination-numbers
+        - for(let i = 1; i <= totalPages; i++)
+          if i === currentPage
+            span.pagination-current #{i}
+          else
+            a.pagination-button(href=`${isAvailableOnly ? '/available' : '/'}?page=${i}`) #{i}
+      
+      if currentPage < totalPages
+        a.pagination-button(href=`${isAvailableOnly ? '/available' : '/'}?page=${currentPage + 1}`) Next
+      
+      .pagination-goto
+        input#pageInput(type="number" min="1" max=totalPages placeholder="Go to page")
+        button#gotoButton Go
+
+    //- Add JavaScript for the goto functionality
+    script.
+      document.getElementById('gotoButton').addEventListener('click', function() {
+        const pageNum = document.getElementById('pageInput').value;
+        const isAvailable = #{isAvailableOnly};
+        if (pageNum && pageNum >= 1 && pageNum <= #{totalPages}) {
+          window.location.href = `${isAvailable ? '/available' : '/'}?page=${pageNum}`;
+        }
+      });
 
   //- JavaScript to get the current location
   script.

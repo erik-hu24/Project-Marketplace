@@ -15,10 +15,6 @@ html {
   overflow-y: scroll;
 }
 
-.main-content {
-  padding: 20px;
-}
-
 .header-container {
   display: flex;
   justify-content: space-between;
@@ -260,7 +256,19 @@ html {
   border-radius: 10px;
 }
 
-.nav-item:hover {
+.nav-item2 {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  font-size: 1.5rem;
+  color: #616161;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 10px;
+}
+
+.nav-item:hover, 
+.nav-item2:hover {
   background-color: #ddd;
 }
 
@@ -280,6 +288,67 @@ html {
 
 .main-content {
   margin-left: 230px; 
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+  gap: 15px;
+}
+
+.pagination-numbers {
+  display: flex;
+  gap: 5px;
+}
+
+.pagination-button {
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #1877f2;
+  background-color: white;
+  transition: background-color 0.2s;
+}
+
+.pagination-button:hover {
+  background-color: #f0f2f5;
+  text-decoration: none;
+}
+
+.pagination-current {
+  padding: 8px 15px;
+  background-color: #1877f2;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination-goto {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.pagination-goto input {
+  width: 80px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.pagination-goto button {
+  padding: 8px 15px;
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagination-goto button:hover {
+  background-color: #166fe5;
 }
 
 

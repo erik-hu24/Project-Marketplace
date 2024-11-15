@@ -4,14 +4,48 @@ const products = require('../module/products');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  const page = parseInt(req.query.page) || 1;
+  const limit = 15;
+  
   products.find({})
-    .then( productList =>{ 
-      res.render('products',
-      {
-        productList
+    .then(allProducts => {
+      const totalProducts = allProducts.length;
+      const totalPages = Math.ceil(totalProducts / limit);
+      const startIndex = (page - 1) * limit;
+      const productList = allProducts.slice(startIndex, startIndex + limit);
+      
+      res.render('products', {
+        productList,
+        currentPage: page,
+        totalPages,
+        isAvailableOnly: false
       });
     })
-    .catch( err =>{
+    .catch(err => {
+      console.log(err);
+      res.status(500).send("Error retrieving products");
+    });
+});
+
+router.get('/available', function(req, res, next) {
+  const page = parseInt(req.query.page) || 1;
+  const limit = 15;
+  
+  products.find({status: "Available"})
+    .then(allProducts => {
+      const totalProducts = allProducts.length;
+      const totalPages = Math.ceil(totalProducts / limit);
+      const startIndex = (page - 1) * limit;
+      const productList = allProducts.slice(startIndex, startIndex + limit);
+      
+      res.render('products', {
+        productList,
+        currentPage: page,
+        totalPages,
+        isAvailableOnly: true
+      });
+    })
+    .catch(err => {
       console.log(err);
       res.status(500).send("Error retrieving products");
     });

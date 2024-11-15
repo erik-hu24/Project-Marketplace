@@ -50,6 +50,12 @@ router.get('/:productID', async (req, res, next) => {
 router.post('/:productID', async (req, res, next) => {
   try {
     const productID = req.params.productID;
+    // if any delete action
+    if (req.body.delete) {
+      await products.findByIdAndDelete(productID);
+      //back to the homw page, once the post is deleted
+      return res.render('delete-success'); 
+    }
     const { title, seller, contact, imageURL, description, condition, price, location, status } = req.body;
     const updatedStatus = status === 'Sold' ? 'Unavailable' : 'Available';
 

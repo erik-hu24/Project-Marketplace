@@ -14,7 +14,7 @@ const productsSchema = new Schema({
     location: { type: String, required: true },
     contact: { type: String, required: true },
     imageURL: { type: String, required: true, default: "https://picsum.photos/300"},
-    password: String,
+    password: {type:String, required:true},
     status: { type: String, default: "Available" } // Add status field
 });
 

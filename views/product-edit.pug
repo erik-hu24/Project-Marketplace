@@ -49,7 +49,9 @@ block content
       .form-group
         label(for="status") Mark as Sold:
         input(type="checkbox" name="status" value="Sold" checked=product.status === 'Unavailable')
-
       
       .form-group.button-group
         button.edit-button(type="submit") Save Changes
+     
+      .form-group.button-group
+        button.delete-button(type="submit" name="delete" value="true") Delete Post
