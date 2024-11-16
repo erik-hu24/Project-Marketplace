@@ -3,11 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+require('dotenv').config()
 
 // =================== connect to MongoDB =================================
 const mongoose = require('mongoose');
 
-const mongoDB = "mongodb+srv://erikhu:0x5TFIhuTx1gEj3s@marketplace.geayz.mongodb.net/marketplace";
+const mongoDB = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.PASSWORD}@marketplace.geayz.mongodb.net/marketplace`;
 
 main().catch((err) => console.log(err));
 async function main() {
@@ -35,10 +36,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/edit', editRouter);
 app.use('/create', createRouter);
-app.use('/', productsRouter);
 app.use('/users', usersRouter);
-
-
+app.use('/', productsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
